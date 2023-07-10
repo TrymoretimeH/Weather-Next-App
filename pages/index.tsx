@@ -12,7 +12,7 @@ export default function Home() {
         <title>Weather Next App</title>
       </Head>
       <p>Hello, It is a weather next app with google login.</p>
-      <button className='mt-4 py-2 px-4 bg-black'><Link href="/login" >Login Page</Link></button>
+      <button className='underline mt-4'><Link href="/login" >Login Page</Link></button>
     </div>
   )
 }
