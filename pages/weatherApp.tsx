@@ -22,13 +22,13 @@ const WeatherApp = (props: Props) => {
     e.preventDefault();
     if (city !== "") {
       setLoading(true);
+      setSubmitted(true);
       axios
         .get(urlLocation)
         .then((response) => setWeather(response.data))
         .catch((err) => console.log(err));
       setLoading(false);
       setCity("");
-      setSubmitted(true);
     }
   };
 
@@ -42,7 +42,7 @@ const WeatherApp = (props: Props) => {
             className="object-cover"
             src={weatherImg}
             layout="fill"
-            alt="weather bg"
+            alt="weather background"
           />
 
           {/* Search */}
