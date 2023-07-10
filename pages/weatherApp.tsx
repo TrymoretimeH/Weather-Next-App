@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import Image from "next/image";
 import weatherImg from "../public/weather.jpg";
 import Weather from "../components/Weather";
+import Head from "next/head";
 
 type Props = {};
 
@@ -36,6 +37,9 @@ const WeatherApp = (props: Props) => {
     if (session.user) {
       return (
         <div className="">
+          <Head>
+            <title>Weather App</title>
+          </Head>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/20 z-[1]"></div>
           {/* Background Image */}
           <Image
