@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useRef } from "react";
 import { useSession, signOut, getSession } from "next-auth/react";
 import axios from "axios";
 import { BsSearch } from "react-icons/bs";
@@ -16,6 +16,7 @@ const WeatherApp = (props: Props) => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
+  const refInput = useRef(null)
 
   const urlLocation = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&lang=vi`;
 
@@ -30,6 +31,7 @@ const WeatherApp = (props: Props) => {
         .catch((err) => console.log(err));
       setLoading(false);
       setCity("");
+      refInput.current.blur()
     }
   };
 
@@ -62,6 +64,7 @@ const WeatherApp = (props: Props) => {
                     className="bg-transparent border-none text-white focus:outline-none text-2xl pl-3 placeholder:text-gray-600 w-full"
                     type="text"
                     placeholder="VD: Ha Noi"
+                    ref={refInput}
                     value={city}
                   />
                 </div>
