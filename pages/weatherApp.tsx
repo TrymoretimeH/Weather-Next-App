@@ -72,9 +72,9 @@ const WeatherApp = (props: Props) => {
             </div>
             {/* User */}
             <div className="max-w-[25%] flex justify-center items-center">
-              <p className="break-words hidden md:block">
-                Hi, {session.user.name}
-              </p>
+              <div className="break-words hidden md:flex">
+                Hi,{" "}<p className="font-bold">{session.user.name}</p>
+              </div>
               <div
                 onClick={() => setUserMenu(!userMenu)}
                 className="p-2 cursor-pointer min-w-[48px] min-h-[48px]"
